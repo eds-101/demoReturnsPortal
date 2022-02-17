@@ -4,12 +4,11 @@ function Home(props){
     const [emailInstead, setEmailInstead] = useState(false)
     function switchUserInput() {emailInstead ? setEmailInstead(false) : setEmailInstead(true)}
 
-    const API_KEY = process.env.REACT_APP_API_KEY
-    // console.log("key: ", API_KEY)
+    const API_KEY = process.env.REACT_APP_API_KEY || process.env.REACT_APP_WEATHER_API_KEY 
 
     async function handleSubmit(e) {
         e.preventDefault()  
-        const submittedOrderNumber = e.target[0].value.trim() 
+        const submittedOrderNumber = parseOrderNumber(e.target[0].value.trim())
         const submittedUserValue = e.target[1].value.trim() 
         
         try { 
@@ -28,6 +27,10 @@ function Home(props){
             alert("Something went wrong, please try again")
             console.log(error)  
         }
+    }
+
+    function parseOrderNumber(rawOrder) {
+        return rawOrder.replace(/\D/g, "")
     }
 
     function authenticateUser(method, customerEntry, systemEntry){
@@ -50,6 +53,7 @@ function Home(props){
                     product['Returnable'] = 3516 !== id
                     product['OrderDate'] = orderDate
                     productsInOrder.push(product) 
+                    console.log(product)
                     product = {}
                 }
             return productsInOrder

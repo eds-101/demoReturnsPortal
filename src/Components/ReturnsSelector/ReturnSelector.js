@@ -50,7 +50,7 @@ function ReturnSelector(props) {
     } 
 
     return( 
-        <div className='flex align-middle justify-center'>  
+        <div className=''>  
             <div className='flex flex-col items-center justify-center'>
                 {allProductsInOrder.map((p) => {  
                     return <ItemRow key={p['ID']} itemID={p['ID']} name={p['Name']} returnable={p['Returnable']}
@@ -58,10 +58,11 @@ function ReturnSelector(props) {
                     price={p['Price']} returnReasonHandler={addItemAndReturnReason}
                     returnQuantityHandler={addItemQuantityToReturn} /> 
                 })}  
-                <div className='buttonContainer'>
-                    <button onClick={submitCustomerReturn} className="buttonReturnItems">Review Items</button>
-                </div> 
             </div>
+            <div class="flex flex-col items-center justify-center my-5">
+                <button role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-1/3">Submit your return</button>
+            </div>
+
         </div>
     )
 }

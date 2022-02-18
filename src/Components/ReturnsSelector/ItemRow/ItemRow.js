@@ -68,7 +68,7 @@ function ItemRow(props) {
                                         : null}
                                     </div>
                                     <div class="relative font-normal text-xs sm:text-sm flex items-center text-gray-600">
-                                        { props.returnable ? null : <p>This is outside the return period</p>}
+                                        { props.returnable ? null : <p>This product is not eligible for return</p>}
                                     </div>
                                 </div>
                             </div>

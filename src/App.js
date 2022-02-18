@@ -29,7 +29,7 @@ function App() {
          : null}
       </div>
       <div id="footer">
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

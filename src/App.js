@@ -3,6 +3,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
 import ReturnSelector from './Components/ReturnsSelector/ReturnSelector'
+import dummyData from './dummyData';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
       <div id="app">
         {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/>
          : null}
-        {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={orderData}/>
+        {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={dummyData}/>
          : null}
       </div>
       <div id="footer">

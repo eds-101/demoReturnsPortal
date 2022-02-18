@@ -100,7 +100,8 @@ function Home(props){
             <div class="flex flex-col items-center justify-center">
 
                 <div class="bg-bla shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
-                    <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 mb-5">Start your returns here</p>
+                    <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 mb-5"
+                    >Start your returns here</p>
                     <form className="orderAuth" onSubmit={handleSubmit}>  
                         <div>
                             <label id="orderNumber" class="text-sm font-medium leading-none text-gray-800">
@@ -137,7 +138,11 @@ function Home(props){
                             <p class="text-base font-medium leading-4 px-2.5 text-gray-400">OR</p>
                             <hr class="w-full bg-gray-400  " />
                         </div>
-                        <p tabindex="0" class="focus:outline-none text-sm mt-2 font-medium leading-none text-gray-500">Having issues? <a onClick={switchUserInput} class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer"> Enter your email instead</a></p>
+                        <p tabindex="0" class="focus:outline-none text-sm mt-2 font-medium leading-none text-gray-500"
+                        >Having issues? 
+                        <a onClick={switchUserInput} class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer"
+                        > Enter your email instead</a>
+                        </p>
 
                         <div class="mt-8">
                             <button role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-full">Find your order</button>

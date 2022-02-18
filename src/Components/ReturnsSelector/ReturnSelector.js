@@ -50,17 +50,17 @@ function ReturnSelector(props) {
     } 
 
     return( 
-        <div className='returnSelectorContainer'>  
-        <div className='returnSelectorContainerBox'>
-            {allProductsInOrder.map((p) => {  
-                return <ItemRow key={p['ID']} itemID={p['ID']} name={p['Name']} returnable={p['Returnable']}
-                imgURL={p['ImageURL']} quantity={Number(p['Quantity'])} 
-                price={p['Price']} returnReasonHandler={addItemAndReturnReason}
-                returnQuantityHandler={addItemQuantityToReturn} /> 
-            })}  
-            <div className='buttonContainer'>
-                <button onClick={submitCustomerReturn} className="buttonReturnItems">Review Items</button>
-            </div> 
+        <div className='flex align-middle justify-center'>  
+            <div className='flex flex-col items-center justify-center'>
+                {allProductsInOrder.map((p) => {  
+                    return <ItemRow key={p['ID']} itemID={p['ID']} name={p['Name']} returnable={p['Returnable']}
+                    imgURL={p['ImageURL']} quantity={Number(p['Quantity'])} 
+                    price={p['Price']} returnReasonHandler={addItemAndReturnReason}
+                    returnQuantityHandler={addItemQuantityToReturn} /> 
+                })}  
+                <div className='buttonContainer'>
+                    <button onClick={submitCustomerReturn} className="buttonReturnItems">Review Items</button>
+                </div> 
             </div>
         </div>
     )

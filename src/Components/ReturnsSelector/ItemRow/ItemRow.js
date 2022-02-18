@@ -37,11 +37,11 @@ function ItemRow(props) {
                                 </div>
                                 <div>
                                     <div class="mb-2 text-gray-700">
-                                        <p class="font-semibold text-xl">{props.name}</p>
+                                        <p class="font-semibold text-l">{props.name}</p>
                                     </div>
                                     <div class="mb-2 relative font-normal text-xs sm:text-sm flex items-center text-gray-600">
                                             { props.returnable ? <select required onChange={(e) => returnQuantity(e, props.itemID, props.name, props.ImageURL)} 
-                                            aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1 mb-2">
+                                            aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1 mb-2">
                                             <option>Qty to return</option>
                                             {quantity.map(i => <option value={i}>{Number(i)}</option>)}
                                             </select> 
@@ -55,7 +55,7 @@ function ItemRow(props) {
                                     <div class="relative font-normal text-xs sm:text-sm flex items-center text-gray-600">
                                         { props.returnable ? 
                                         <select required onChange={(e) => returnReason(e, props.itemID, props.name, props.ImageURL)} 
-                                        aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1">
+                                        aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1">
                                         <option>Why?</option>
                                         {returnsReasons.map((r) => <option value={r}>{r}</option>)}
                                         </select> 

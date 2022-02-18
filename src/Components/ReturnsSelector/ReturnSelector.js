@@ -45,12 +45,18 @@ function ReturnSelector(props) {
         if(filteredReturns.length === 0){ return }  
         props.finalReturns(true, filteredReturns)
     } 
+
+    function uncapitalise(phrase) {
+        return phrase.slice(0,1) + phrase.slice(1).toLowerCase()
+    }
+
     // add existing back button
+    // fix item row > return and return reason fixed dropdown sizes
     return( 
         <div>  
             <div className='flex flex-col items-center justify-center'>
                 {allProductsInOrder.map((p) => {  
-                    return <ItemRow key={p['ID']} itemID={p['ID']} name={p['Name']} returnable={p['Returnable']}
+                    return <ItemRow key={p['ID']} itemID={p['ID']} name={uncapitalise(p['Name'])} returnable={p['Returnable']}
                     imgURL={p['ImageURL']} quantity={Number(p['Quantity'])} 
                     price={p['Price']} returnReasonHandler={addItemAndReturnReason}
                     returnQuantityHandler={addItemQuantityToReturn} /> 

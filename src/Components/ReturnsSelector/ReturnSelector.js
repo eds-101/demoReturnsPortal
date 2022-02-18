@@ -38,19 +38,16 @@ function ReturnSelector(props) {
             }  
         }) 
         if(!itemReturnIsFound){ setCustomerChosenReturns(currentReturns => [...currentReturns, itemAndQuantObject]) }  
-
     }  
     
     function submitCustomerReturn(){ 
-        const newFIlter = customerChosenReturns.filter((item) => item['Quantity'] >= 1)   
-        console.log(newFIlter)
-        if(newFIlter.length === 0){ return }  
-
-        props.getVerifiedItemReturns(true, newFIlter)
+        const filteredReturns = customerChosenReturns.filter((item) => item['Quantity'] >= 1)   
+        if(filteredReturns.length === 0){ return }  
+        props.finalReturns(true, filteredReturns)
     } 
-
+    // add existing back button
     return( 
-        <div className=''>  
+        <div>  
             <div className='flex flex-col items-center justify-center'>
                 {allProductsInOrder.map((p) => {  
                     return <ItemRow key={p['ID']} itemID={p['ID']} name={p['Name']} returnable={p['Returnable']}
@@ -60,9 +57,8 @@ function ReturnSelector(props) {
                 })}  
             </div>
             <div class="flex flex-col items-center justify-center my-5">
-                <button role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-1/3">Submit your return</button>
+                <button onClick={submitCustomerReturn} role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-1/3">Submit your return</button>
             </div>
-
         </div>
     )
 }

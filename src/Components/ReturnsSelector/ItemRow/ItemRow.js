@@ -25,7 +25,7 @@ function ItemRow(props) {
     }
 
     //sort out capitalisation of the product names
-    //update for mobile view
+    //update for mobile and responsive views
     return(
             <div class="transition duration-150 ease-in-out md:mt-0 mt-8 top-0 left-0 sm:ml-10 md:ml-10 w-10/12 md:w-1/2">
                 <div class="w-full bg-white rounded shadow-2xl">

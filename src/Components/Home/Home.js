@@ -10,6 +10,7 @@ function Home(props){
         e.preventDefault()  
         // for local demo purposes
         props.getFinalisedOrder("updatedOrder")
+        return
         // for local demo purposes
         const submittedOrderNumber = parseOrderNumber(e.target[0].value.trim())
         const submittedUserValue = e.target[1].value.trim() 

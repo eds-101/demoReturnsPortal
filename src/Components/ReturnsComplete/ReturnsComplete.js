@@ -6,9 +6,12 @@ function ReturnsComplete(props){
         <div>
             <div class="bg-[url('https://i.imgur.com/jAXaawT.jpg')] h-screen bg-cover bg-center flex justify-items-center items-center">
                 <div class="px-10 lg:px-32 xl:px-40">
-                <h1 class="text-6xl font-semibold mb-6">
+                <h1 class="text-5xl font-semibold mb-6">
                     <span>Return Complete</span>
                 </h1>
+                <h3 class="text-2xl font-semibold mb-6">
+                    <span>Products:</span>
+                </h3>
                 <ul>
                     {props.finalOrder.map((product) => {
                        return <li class="text-lg max-w-md">

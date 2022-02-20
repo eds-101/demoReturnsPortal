@@ -13,9 +13,8 @@ function App() {
   const [finalOrderData, setFinalOrderData] = useState([])  
 
   function populateOrder(order){      
-    console.log(order)  
     setOrderData(order)     
-      setShowScreen('ReturnSelector')
+    setShowScreen('ReturnSelector')
   }  
 
   function verifiedItemReturns(valid, finishedOrder){  
@@ -28,7 +27,7 @@ function App() {
   return (
     <div id="app">
       <div id="header">
-      <Header />
+        <Header />
       </div>
       <div id="app">
         {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/> : null}
@@ -36,7 +35,7 @@ function App() {
         {showScreen === 'ReturnsComplete' ?  <ReturnsComplete goHomePage={HomePageReturn} finalOrder={finalOrderData}/> : null }
       </div>
       <div id="footer">
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );

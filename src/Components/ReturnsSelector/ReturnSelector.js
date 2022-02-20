@@ -52,6 +52,7 @@ function ReturnSelector(props) {
 
     // add existing back button
     // fix item row > return and return reason fixed dropdown sizes
+    // functionality for no items to return (alert, no items selected)
     return( 
         <div>  
             <div className='flex flex-col items-center justify-center'>

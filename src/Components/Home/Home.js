@@ -8,6 +8,9 @@ function Home(props){
 
     async function handleSubmit(e) {
         e.preventDefault()  
+        // for local demo purposes
+        props.getFinalisedOrder("updatedOrder")
+        // for local demo purposes
         const submittedOrderNumber = parseOrderNumber(e.target[0].value.trim())
         const submittedUserValue = e.target[1].value.trim() 
         
@@ -92,16 +95,16 @@ function Home(props){
         return listOfProducts
     }  
 
-    // fix layout and make it set into the middle
     return(
         <div>
-            <div class="h-4/5 bg-gradient-to-tl from-gray-100 to-white w-full py-12 px-4">
+            <div class="h-4/5 bg-gradient-to-tl from-gray-100 to-white w-full pt-6 pb-8 px-4">
 
             <div class="flex flex-col items-center justify-center">
 
-                <div class="bg-bla shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+                <div class="shadow rounded lg:w-1/3  md:w-1/2 w-full p-5">
                     <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 mb-5"
-                    >Start your returns here</p>
+                    >Start your returns here
+                    </p>
                     <form className="orderAuth" onSubmit={handleSubmit}>  
                         <div>
                             <label id="orderNumber" class="text-sm font-medium leading-none text-gray-800">
@@ -145,7 +148,8 @@ function Home(props){
                         </p>
 
                         <div class="mt-8">
-                            <button role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-full">Find your order</button>
+                            <button role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-full"
+                            >Find your order</button>
                         </div>
                     </form>
                 </div>

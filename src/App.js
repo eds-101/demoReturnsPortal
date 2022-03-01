@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
+import Top from "./Components/Top/Top";
+import Bottom from "./Components/Bottom/Bottom";
 import Home from "./Components/Home/Home";
 import ReturnSelector from './Components/ReturnsSelector/ReturnSelector'
 import ReturnsComplete from './Components/ReturnsComplete/ReturnsComplete';
@@ -25,17 +25,17 @@ function App() {
   function HomePageReturn(){ setShowScreen('Home') }
 
   return (
-    <div id="app">
-      <div id="header">
-        <Header />
+    <div className="app h-screen">
+      <div className='top h-1/8'>
+        <Top />
       </div>
-      <div id="app">
+      <div className="app h-6/8">
         {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/> : null}
         {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={dummyData} finalReturns={verifiedItemReturns}/> : null}
         {showScreen === 'ReturnsComplete' ?  <ReturnsComplete goHomePage={HomePageReturn} finalOrder={finalOrderData}/> : null }
       </div>
-      <div id="footer">
-        <Footer />
+      <div className="bottom h-1/8 top-0">
+        <Bottom />
       </div>
     </div>
   );

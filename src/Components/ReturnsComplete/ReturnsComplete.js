@@ -15,7 +15,7 @@ function ReturnsComplete(props){
                 <ul>
                     {props.finalOrder.map((product) => {
                        return <li class="text-lg max-w-md">
-                       {` ${product['Quantity'] > 1 ? product['Quantity'] + 'x' : ""}`} 
+                       {` ${product['Quantity'] > 1 ? product['Quantity'] + 'x ' : ""}`} 
                        {product['Name'].slice(0,1) + product['Name'].slice(1).toLowerCase()}</li>
                     })}
                 </ul>

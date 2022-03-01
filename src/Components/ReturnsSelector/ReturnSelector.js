@@ -41,8 +41,13 @@ function ReturnSelector(props) {
     }  
     
     function submitCustomerReturn(){ 
+        console.log(customerChosenReturns)
         const filteredReturns = customerChosenReturns.filter((item) => item['Quantity'] >= 1)   
-        if(filteredReturns.length === 0){ return }  
+        if(filteredReturns.length === 0){ 
+            alert("Please choose one or more items to return")    
+            return 
+        }
+        console.log(filteredReturns)  
         props.finalReturns(true, filteredReturns)
     } 
 
@@ -51,13 +56,12 @@ function ReturnSelector(props) {
     }
 
     // add existing back button
-    // fix item row > return and return reason fixed dropdown sizes
-    // functionality for no items to return (alert, no items selected)
     return( 
         <div>  
             <div className='flex flex-col items-center justify-center'>
                 {allProductsInOrder.map((p) => {  
-                    return <ItemRow key={p['ID']} itemID={p['ID']} name={uncapitalise(p['Name'])} returnable={p['Returnable']}
+                    return <ItemRow key={p['id']} id={p['id']} name={uncapitalise(p['Name'])} 
+                    returnable={p['Returnable']}
                     imgURL={p['ImageURL']} quantity={Number(p['Quantity'])} 
                     price={p['Price']} returnReasonHandler={addItemAndReturnReason}
                     returnQuantityHandler={addItemQuantityToReturn} /> 

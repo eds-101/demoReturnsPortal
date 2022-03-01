@@ -15,12 +15,12 @@ function ItemRow(props) {
     const quantity = populateReturnQuantityOptions(props.quantity)
 
     function returnReason(reason, id, name, imageURL){
-        let StoringReasonAndItemID = {'ItemId': id, 'Reason': reason.target.value, 'Name': name, 'ImageURL': imageURL, 'Quantity': 0}  
+        let StoringReasonAndItemID = {'id': id, 'Reason': reason.target.value, 'Name': name, 'ImageURL': imageURL, 'Quantity': 0}  
         props.returnReasonHandler(StoringReasonAndItemID)
     }
 
     function returnQuantity(quantity, id, name, imageURL){
-        const itemQuantityToReturn = {'ItemId': id, 'Quantity': Number(quantity.target.value), 'Name': name, 'ImageURL': imageURL}
+        const itemQuantityToReturn = {'id': id, 'Quantity': Number(quantity.target.value), 'Name': name, 'ImageURL': imageURL}
         props.returnQuantityHandler(itemQuantityToReturn)  
     }
 
@@ -40,21 +40,23 @@ function ItemRow(props) {
                                         <p class="font-semibold text-l">{props.name}</p>
                                     </div>
                                     <div class="mb-2 relative font-normal text-xs sm:text-sm flex items-center text-gray-600">
-                                            { props.returnable ? <select required onChange={(e) => returnQuantity(e, props.itemID, props.name, props.ImageURL)} 
-                                            aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1 mb-2">
-                                            <option>Qty to return</option>
-                                            {quantity.map(i => <option value={i}>{Number(i)}</option>)}
-                                            </select> 
-                                            : null}
-                                        {props.returnable ? <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-0 mr-2 icon icon-tabler icon-tabler-chevron-down" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z"></path>
-                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        { props.returnable ? 
+                                        <select required onChange={(e) => returnQuantity(e, props.id, props.name, props.ImageURL)} 
+                                        aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1 mb-2">
+                                        <option>Qty to return</option>
+                                        {quantity.map(i => <option value={i}>{Number(i)}</option>)}
+                                        </select> 
+                                        : null}
+                                        {props.returnable ? 
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-0 mr-2 icon icon-tabler icon-tabler-chevron-down" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z"></path>
+                                        <polyline points="6 9 12 15 18 9"></polyline>
                                         </svg>
                                         : null}
                                     </div>
                                     <div class="relative font-normal text-xs sm:text-sm flex items-center text-gray-600">
                                         { props.returnable ? 
-                                        <select required onChange={(e) => returnReason(e, props.itemID, props.name, props.ImageURL)} 
+                                        <select required onChange={(e) => returnReason(e, props.id, props.name, props.ImageURL)} 
                                         aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1">
                                         <option>Why?</option>
                                         {returnsReasons.map((r) => <option value={r}>{r}</option>)}

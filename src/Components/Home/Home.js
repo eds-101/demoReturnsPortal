@@ -100,7 +100,6 @@ function Home(props){
         <div>
             <div class="h-4/5 bg-gradient-to-tl from-gray-100 to-white w-full pt-6 pb-8 px-4">
 
-            <div class="flex flex-col items-center justify-center">
 
                 <div class="shadow rounded lg:w-1/3  md:w-1/2 w-full p-5">
                     <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 mb-5"
@@ -154,7 +153,6 @@ function Home(props){
                         </div>
                     </form>
                 </div>
-            </div>
         </div>   
 
 

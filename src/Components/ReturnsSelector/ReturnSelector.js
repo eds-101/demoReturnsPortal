@@ -15,29 +15,25 @@ function ReturnSelector(props) {
     }, [customerChosenReturns])
 
     function addItemAndReturnReason(itemAndReturnObject){   
-        let itemReturnIsFound = false
-        customerChosenReturns.map((customerReturnItem) => { 
-            if(customerReturnItem['ItemId'] === itemAndReturnObject['ItemId']){   
-                customerReturnItem['Reason'] = itemAndReturnObject['Reason']    
-                customerReturnItem['Name'] = itemAndReturnObject['Name']    
-                customerReturnItem['ImageURL'] = itemAndReturnObject['ImageURL']    
-                itemReturnIsFound = true 
-            }  
-        }) 
-        if(!itemReturnIsFound){ setCustomerChosenReturns(currentReturns => [...currentReturns, itemAndReturnObject])}  
+        let flag = true
+        for(let i=0; i<customerChosenReturns.length; i++) {
+            if(customerChosenReturns[i]['id'] === itemAndReturnObject['id']) {
+                customerChosenReturns[i]["Reason"] = itemAndReturnObject["Reason"]
+                flag = false
+            }
+        }
+        if(flag) {setCustomerChosenReturns(currentReturns => [...currentReturns, itemAndReturnObject])}
     }
 
     function addItemQuantityToReturn(itemAndQuantObject){   
-        let itemReturnIsFound = false
-        customerChosenReturns.map((customerReturnItem) => { 
-            if(customerReturnItem['ItemId'] === itemAndQuantObject['ItemId']){  
-                customerReturnItem['Quantity'] = itemAndQuantObject['Quantity']     
-                customerReturnItem['Name'] = itemAndQuantObject['Name']    
-                customerReturnItem['ImageURL'] = itemAndQuantObject['ImageURL']    
-                itemReturnIsFound = true
-            }  
-        }) 
-        if(!itemReturnIsFound){ setCustomerChosenReturns(currentReturns => [...currentReturns, itemAndQuantObject]) }  
+        let flag = true
+        for(let i=0; i<customerChosenReturns.length; i++) {
+            if(customerChosenReturns[i]['id'] === itemAndQuantObject['id']) {
+                customerChosenReturns[i]["Quantity"] = itemAndQuantObject["Quantity"]
+                flag = false
+            }
+        }
+        if(flag) {setCustomerChosenReturns(currentReturns => [...currentReturns, itemAndQuantObject])}
     }  
     
     function submitCustomerReturn(){ 
@@ -47,7 +43,6 @@ function ReturnSelector(props) {
             alert("Please choose one or more items to return")    
             return 
         }
-        console.log(filteredReturns)  
         props.finalReturns(true, filteredReturns)
     } 
 

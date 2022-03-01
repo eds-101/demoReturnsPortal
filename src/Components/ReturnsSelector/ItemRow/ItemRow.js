@@ -3,6 +3,7 @@ const returnsReasons = [
 ]  
 
 function ItemRow(props) { 
+    const quantity = populateReturnQuantityOptions(props.quantity)
 
     function populateReturnQuantityOptions(quantity) {
         const quantList = []
@@ -11,8 +12,6 @@ function ItemRow(props) {
         }
         return quantList
     } 
-
-    const quantity = populateReturnQuantityOptions(props.quantity)
 
     function returnReason(reason, id, name, imageURL){
         let StoringReasonAndItemID = {'id': id, 'Reason': reason.target.value, 'Name': name, 'ImageURL': imageURL, 'Quantity': 0}  

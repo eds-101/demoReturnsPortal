@@ -28,6 +28,11 @@ function App() {
     <div className="app h-screen">
       <div className='top h-1/8'>
         <Top />
+        {showScreen === "ReturnSelector" ?
+        <div class="flex flex-col items-center justify-center my-5">
+        <button onClick={HomePageReturn} class="focus:ring-1 focus:ring-offset-1 focus:ring-indigo-300 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-2 w-1/6"
+        >Go back</button>  </div> 
+        : null}
       </div>
       <div className="app h-6/8">
         {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/> : null}

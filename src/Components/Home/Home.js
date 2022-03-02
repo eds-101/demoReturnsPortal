@@ -98,7 +98,8 @@ function Home(props){
 
     return(
         <div>
-            <div class="h-4/5 bg-gradient-to-tl from-gray-100 to-white w-full pt-6 pb-8 px-4">
+        
+            <div class="flex justify-center h-4/5 bg-gradient-to-tl from-gray-100 to-white w-full pt-6 pb-8 px-4">
 
 
                 <div class="shadow rounded lg:w-1/3  md:w-1/2 w-full p-5">

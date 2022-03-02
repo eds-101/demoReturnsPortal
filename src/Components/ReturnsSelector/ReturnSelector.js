@@ -50,9 +50,8 @@ function ReturnSelector(props) {
         return phrase.slice(0,1) + phrase.slice(1).toLowerCase()
     }
 
-    // add existing back button
     return( 
-        <div>  
+        <div>
             <div className='flex flex-col items-center justify-center'>
                 {allProductsInOrder.map((p) => {  
                     return <ItemRow key={p['id']} id={p['id']} name={uncapitalise(p['Name'])} 
@@ -63,7 +62,8 @@ function ReturnSelector(props) {
                 })}  
             </div>
             <div class="flex flex-col items-center justify-center my-5">
-                <button onClick={submitCustomerReturn} role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-1/3">Submit your return</button>
+                <button onClick={submitCustomerReturn} class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-1/3"
+                >Submit your return</button>
             </div>
         </div>
     )

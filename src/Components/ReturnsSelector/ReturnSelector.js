@@ -11,7 +11,7 @@ function ReturnSelector(props) {
 
     useEffect(() => {
         setCustomerChosenReturns(customerChosenReturns)    
-        console.log(customerChosenReturns)
+        // console.log(customerChosenReturns)
     }, [customerChosenReturns])
 
     function addItemAndReturnReason(itemAndReturnObject){   
@@ -37,7 +37,7 @@ function ReturnSelector(props) {
     }  
     
     function submitCustomerReturn(){ 
-        console.log(customerChosenReturns)
+        // console.log(customerChosenReturns)
         const filteredReturns = customerChosenReturns.filter((item) => item['Quantity'] >= 1)   
         if(filteredReturns.length === 0){ 
             alert("Please choose one or more items to return")    

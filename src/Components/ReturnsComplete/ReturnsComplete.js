@@ -1,6 +1,6 @@
 function ReturnsComplete(props){  
     function goHome(){props.goHomePage()}
-    console.log(props.finalOrder)
+    // console.log(props.finalOrder)
 
     return(
         <div>

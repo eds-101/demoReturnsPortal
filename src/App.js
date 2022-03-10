@@ -15,18 +15,18 @@ function App() {
   function populateOrder(order){      
     setOrderData(order)     
     setShowScreen('ReturnSelector')
-    window.scrollTo(0,0)
+    // window.scrollTo(0,0)
   }  
   
   function verifiedItemReturns(valid, finishedOrder){  
     if(valid){setShowScreen('ReturnsComplete')}   
-    window.scrollTo(0,0)
+    // window.scrollTo(0,0)
     setFinalOrderData(finishedOrder)
   } 
 
   function HomePageReturn() { 
     setShowScreen('Home') 
-    window.scrollTo(0,0)
+    // window.scrollTo(0,0)
   }
 
   return (

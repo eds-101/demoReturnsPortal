@@ -38,7 +38,7 @@ function ItemRow(props) {
                                     <div class="mb-2 text-gray-700">
                                         <p class="font-semibold text-l">{props.name}</p>
                                     </div>
-                                    <div class="mb-2 relative font-normal text-xs sm:text-sm flex items-center text-gray-600">
+                                    <div class="mb-2 relative font-normal text-base sm:text-base flex items-center text-gray-600">
                                         { props.returnable ? 
                                         <select required onChange={(e) => returnQuantity(e, props.id, props.name, props.ImageURL)} 
                                         aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1 mb-2">
@@ -53,7 +53,7 @@ function ItemRow(props) {
                                         </svg>
                                         : null}
                                     </div>
-                                    <div class="relative font-normal text-xs sm:text-sm flex items-center text-gray-600">
+                                    <div class="relative font-normal text-base sm:text-base flex items-center text-gray-600">
                                         { props.returnable ? 
                                         <select required onChange={(e) => returnReason(e, props.id, props.name, props.ImageURL)} 
                                         aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1">
@@ -68,7 +68,7 @@ function ItemRow(props) {
                                         </svg>
                                         : null}
                                     </div>
-                                    <div class="relative font-normal text-xs sm:text-sm flex items-center text-gray-600">
+                                    <div class="relative font-normal text-base sm:text-base flex items-center text-gray-600">
                                         { props.returnable ? null : <p>This product is not eligible for return</p>}
                                     </div>
                                 </div>

@@ -8,22 +8,22 @@ function Home(props){
 
     async function handleSubmit(e) {
         e.preventDefault()  
-        // for local demo purposes
-        props.getFinalisedOrder("updatedOrder")
-        return
-        // for local demo purposes
-        const submittedOrderNumber = parseOrderNumber(e.target[0].value.trim())
+        const submittedOrderNumber = e.target[0].value.trim()
         const submittedUserValue = e.target[1].value.trim() 
-        
+        props.getFinalisedOrder("done")
+        return
         try { 
+            // GET /api/Order/Search
             const getOrderDetails = await fetch(`https://api.mintsoft.co.uk/api/Order/Search?APIKey=${API_KEY}&OrderNumber=${submittedOrderNumber}`)
             const orderDetails = await getOrderDetails.json() 
             const orderDateparsed = new Date(orderDetails[0].OrderDate.slice(0,10)) // Date obj from 2021-06-16T10:25:36.7951757 
             const orderEmail = orderDetails[0].Email
             const orderPostCode = orderDetails[0].PostCode  
+            console.log(orderEmail, orderPostCode)
             const auth = submittedUserValue.includes('@') ? authenticateUser("email", submittedUserValue, orderEmail) : authenticateUser("postcode", submittedUserValue, orderPostCode) 
             if(auth) {
                 const startOrder = await fetchOrder(submittedOrderNumber, orderDateparsed)
+                console.log(startOrder)
                 const updatedOrder = await completeOrderDetails(startOrder)
                 setTimeout(() => props.getFinalisedOrder(updatedOrder), 1000)
             }  
@@ -33,9 +33,9 @@ function Home(props){
         }
     }
 
-    function parseOrderNumber(rawOrder) {
-        return rawOrder.replace(/\D/g, "")
-    }
+    // function parseOrderNumber(rawOrder) {
+    //     return rawOrder.replace(/\D/g, "")
+    // }
 
     function authenticateUser(method, customerEntry, systemEntry){
         if(customerEntry === systemEntry) {return true}
@@ -47,8 +47,10 @@ function Home(props){
 
     async function fetchOrder(orderNumber, orderDate){
         try { 
+            
             const getProductsFromOrder = await fetch(`https://api.mintsoft.co.uk/api/Order/${orderNumber}/Items?APIKey=${API_KEY}`) 
             const productsRaw = await getProductsFromOrder.json() 
+            console.log(productsRaw)
             let productsInOrder = [], product = {}
             for(let i = 0; i < productsRaw.length; i++) {
                     let id = productsRaw[i].ProductId, quantity = productsRaw[i].Quantity 
@@ -74,6 +76,7 @@ function Home(props){
     // }
 
     async function completeOrderDetails(initialOrderDetails){ 
+        console.log(initialOrderDetails)
         let listOfProducts = [], product = {} 
         try{
             initialOrderDetails.map(async (initialProductData) => {

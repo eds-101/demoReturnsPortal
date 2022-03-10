@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <div className="app h-screen">
+    <div className="app h-screen w-screen">
       <div className='top h-1/8'>
         <Top />
         {showScreen === "ReturnSelector" ?

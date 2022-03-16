@@ -27,7 +27,7 @@ function Home(props){
                 setTimeout(() => props.getFinalisedOrder(updatedOrder), 1000)
             }  
         } catch(error) {
-            alert("Something went wrong, please try again")
+            // alert("Something went wrong, please try again")
             console.log(error)  
         }
     }

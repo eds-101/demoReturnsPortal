@@ -1,5 +1,7 @@
-import ItemRow from './ItemRow/ItemRow'
 import { useState, useEffect } from 'react'
+import ItemRow from './ItemRow/ItemRow'
+import Top from '../Top/Top';
+import Bottom from '../Bottom/Bottom';
 
 function ReturnSelector(props) {     
     const [allProductsInOrder, setAllProductsInOrder] = useState([])    
@@ -50,9 +52,16 @@ function ReturnSelector(props) {
         return phrase.slice(0,1) + phrase.slice(1).toLowerCase()
     }
 
+    // {showScreen === "ReturnSelector" ?
+    // <div class="flex flex-col items-center justify-center my-5">
+    // <button onClick={HomePageReturn} class="focus:ring-1 focus:ring-offset-1 focus:ring-indigo-300 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-2 w-1/6"
+    // >Go back</button>  </div> 
+    // : null}
+
     return( 
-        <div>
-            <div className='flex flex-col items-center justify-center'>
+        <div className="app h-full w-full flex flex-col relative">
+            <Top />
+            <div className='products h-5/6 pt-1 pb-7 overscroll-auto flex flex-col items-center justify-center'>
                 {allProductsInOrder.map((p) => {  
                     return <ItemRow key={p['id']} id={p['id']} name={uncapitalise(p['Name'])} 
                     returnable={p['Returnable']}
@@ -60,10 +69,13 @@ function ReturnSelector(props) {
                     price={p['Price']} returnReasonHandler={addItemAndReturnReason}
                     returnQuantityHandler={addItemQuantityToReturn} /> 
                 })}  
+                <div class="flex flex-col items-center justify-center my-5">
+                    <button onClick={submitCustomerReturn} class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 p-5 mb-10"
+                    >Confirm Return</button>
+                </div>
             </div>
-            <div class="flex flex-col items-center justify-center my-5">
-                <button onClick={submitCustomerReturn} class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-1/3"
-                >Submit your return</button>
+            <div className="bottom w-full absolute bottom-0">
+                <Bottom />
             </div>
         </div>
     )

@@ -30,23 +30,10 @@ function App() {
   }
 
   return (
-    <div className="app h-screen w-screen relative">
-      <div className='top'>
-        <Top />
-        {showScreen === "ReturnSelector" ?
-        <div class="flex flex-col items-center justify-center my-5">
-        <button onClick={HomePageReturn} class="focus:ring-1 focus:ring-offset-1 focus:ring-indigo-300 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-2 w-1/6"
-        >Go back</button>  </div> 
-        : null}
-      </div>
-      <div className="app pt-8">
-        {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/> : null}
-        {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={dummyData} finalReturns={verifiedItemReturns}/> : null}
-        {showScreen === 'ReturnsComplete' ?  <ReturnsComplete goHomePage={HomePageReturn} finalOrder={finalOrderData}/> : null }
-      </div>
-      <div className="bottom h-1/8 w-full absolute bottom-0">
-        <Bottom />
-      </div>
+    <div>
+      {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/> : null}
+      {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={dummyData} finalReturns={verifiedItemReturns}/> : null}
+      {showScreen === 'ReturnsComplete' ?  <ReturnsComplete goHomePage={HomePageReturn} finalOrder={finalOrderData}/> : null }
     </div>
   );
 }

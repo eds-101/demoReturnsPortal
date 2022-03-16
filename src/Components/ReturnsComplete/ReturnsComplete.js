@@ -1,9 +1,13 @@
+import Top from "../Top/Top"
+import Bottom from "../Bottom/Bottom"
+
 function ReturnsComplete(props){  
     function goHome(){props.goHomePage()}
     // console.log(props.finalOrder)
 
     return(
-        <div>
+        <div className="app h-screen w-screen flex flex-col relative">
+            <Top />
             <div class="bg-[url('https://i.imgur.com/jAXaawT.jpg')] h-screen bg-cover bg-center flex justify-items-center items-center">
                 <div class="px-10 lg:px-32 xl:px-40">
                 <h1 class="text-5xl font-semibold mb-6">
@@ -22,6 +26,9 @@ function ReturnsComplete(props){
                 <button onClick={goHome} class="inline-block mt-10 px-10 py-3 bg-yellow-300 text-lg text-black font-semibold"
                 >Back to Returns Page</button>
                 </div>
+            </div>
+            <div className="bottom h-1/8 w-full absolute bottom-0">
+                <Bottom />
             </div>
         </div>
     )

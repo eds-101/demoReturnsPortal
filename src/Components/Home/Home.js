@@ -142,10 +142,14 @@ function Home(props){
                         </div>
                         <p tabindex="0" class="focus:outline-none text-base mt-2 font-medium leading-none text-gray-500"
                         >Having issues? 
+                        {emailInstead ? 
+                        <a onClick={switchUserInput} class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-base font-medium leading-none  text-gray-800 cursor-pointer"
+                        > Enter your postcode</a>
+                        :
                         <a onClick={switchUserInput} class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-base font-medium leading-none  text-gray-800 cursor-pointer"
                         > Enter your email instead</a>
+                        }
                         </p>
-
                         <div class="mt-8">
                             <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-base font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-full"
                             >Find your order</button>

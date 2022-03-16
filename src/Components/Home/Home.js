@@ -103,8 +103,7 @@ function Home(props){
     return(
         <div className="app h-screen w-screen flex flex-col relative">
             <Top />
-        <div className="app h-5/6 pt-8 overscroll-auto">
-            <div class="flex justify-center h-4/5 bg-gradient-to-tl from-gray-100 to-white w-full pt-6 pb-8 px-4">
+        <div className="app h-full flex justify-center bg-gradient-to-tl from-gray-100 to-white w-full py-20 px-4 overscroll-auto">
                 <div class="shadow rounded lg:w-1/3  md:w-1/2 w-full p-5">
                     <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 mb-5"
                     >Start your returns here
@@ -160,7 +159,6 @@ function Home(props){
                             >Find your order</button>
                         </div>
                     </form>
-                </div>
             </div>   
         </div>
         <div className="bottom h-1/8 w-full absolute bottom-0">

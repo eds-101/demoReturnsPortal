@@ -6,6 +6,9 @@ import Bottom from '../Bottom/Bottom';
 function ReturnSelector(props) {     
     const [allProductsInOrder, setAllProductsInOrder] = useState([])    
     const [customerChosenReturns, setCustomerChosenReturns] = useState([])
+    
+    function goHome(){props.goHomePage()}
+
 
     useEffect(() => {
         setAllProductsInOrder(props.loadOrder) 
@@ -52,15 +55,15 @@ function ReturnSelector(props) {
         return phrase.slice(0,1) + phrase.slice(1).toLowerCase()
     }
 
-    // {showScreen === "ReturnSelector" ?
-    // <div class="flex flex-col items-center justify-center my-5">
-    // <button onClick={HomePageReturn} class="focus:ring-1 focus:ring-offset-1 focus:ring-indigo-300 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-2 w-1/6"
-    // >Go back</button>  </div> 
-    // : null}
+
 
     return( 
         <div className="app h-full w-full flex flex-col relative">
             <Top />
+            <div class="flex flex-col items-center justify-center my-5">
+                <button onClick={goHome} class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 p-3"
+                >Go back</button>  
+            </div> 
             <div className='products h-5/6 pt-3 pb-7 overscroll-auto flex flex-col items-center justify-center'>
                 {allProductsInOrder.map((p) => {  
                     return <ItemRow key={p['id']} id={p['id']} name={uncapitalise(p['Name'])} 

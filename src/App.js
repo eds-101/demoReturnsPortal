@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react'
-import Top from "./Components/Top/Top";
-import Bottom from "./Components/Bottom/Bottom";
+import { useState} from 'react'
 import Home from "./Components/Home/Home";
 import ReturnSelector from './Components/ReturnsSelector/ReturnSelector'
 import ReturnsComplete from './Components/ReturnsComplete/ReturnsComplete';
@@ -32,7 +30,7 @@ function App() {
   return (
     <div>
       {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/> : null}
-      {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={dummyData} finalReturns={verifiedItemReturns}/> : null}
+      {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={dummyData} goHomePage={HomePageReturn} finalReturns={verifiedItemReturns}/> : null}
       {showScreen === 'ReturnsComplete' ?  <ReturnsComplete goHomePage={HomePageReturn} finalOrder={finalOrderData}/> : null }
     </div>
   );

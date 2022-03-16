@@ -30,8 +30,8 @@ function App() {
   }
 
   return (
-    <div className="app h-screen w-screen">
-      <div className='top h-1/8'>
+    <div className="app h-screen w-screen relative">
+      <div className='top'>
         <Top />
         {showScreen === "ReturnSelector" ?
         <div class="flex flex-col items-center justify-center my-5">
@@ -39,12 +39,12 @@ function App() {
         >Go back</button>  </div> 
         : null}
       </div>
-      <div className="app h-6/8">
+      <div className="app pt-8">
         {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/> : null}
         {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={dummyData} finalReturns={verifiedItemReturns}/> : null}
         {showScreen === 'ReturnsComplete' ?  <ReturnsComplete goHomePage={HomePageReturn} finalOrder={finalOrderData}/> : null }
       </div>
-      <div className="bottom h-1/8 top-0">
+      <div className="bottom h-1/8 w-full absolute bottom-0">
         <Bottom />
       </div>
     </div>

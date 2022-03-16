@@ -1,0 +1,15 @@
+
+Enter email / enter postcode
+
+Remove order num parsing
+- check what order details are exposed
+
+Email customer w 
+- confirmation (order number, items 2 return)
+- list of courier options
+
+Email TuPack w
+- confirmation (customer name, order number, items 2 return)
+
+Add confirmation screen
+Sort out Date

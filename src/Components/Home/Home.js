@@ -99,11 +99,7 @@ function Home(props){
     }  
 
     return(
-        <div>
-        
             <div class="flex justify-center h-4/5 bg-gradient-to-tl from-gray-100 to-white w-full pt-6 pb-8 px-4">
-
-
                 <div class="shadow rounded lg:w-1/3  md:w-1/2 w-full p-5">
                     <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 mb-5"
                     >Start your returns here
@@ -151,16 +147,13 @@ function Home(props){
                         </p>
 
                         <div class="mt-8">
-                            <button role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-base font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-full"
+                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-base font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-full"
                             >Find your order</button>
                         </div>
                     </form>
                 </div>
         </div>   
 
-
-
-        </div>
     )
 
 }

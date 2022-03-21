@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Top from '../Top/Top';
 import Bottom from '../Bottom/Bottom';
+import logo from './logoOrange.png'
 
 function Home(props){ 
     const [emailInstead, setEmailInstead] = useState(false)
@@ -177,70 +178,46 @@ function Home(props){
     // }  
 
     return(
-        <div className="app h-screen w-screen flex flex-col relative">
-            <Top />
-        <div className="app h-full flex justify-center bg-gradient-to-tl from-gray-100 to-white w-full py-6 px-4 overscroll-auto">
-                <div class="shadow rounded lg:w-1/3  md:w-1/2 w-full p-5">
-                    <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 mb-5"
-                    >Start your returns here
-                    </p>
-                    <form className="orderAuth" onSubmit={handleSubmit}>  
-                        <div>
-                            <label id="orderNumber" class="text-base font-medium leading-none text-gray-800">
-                                Order Number <em>Test: Use 123456789</em>
-                            </label>
-                            <input required aria-labelledby="orderNumber" type="text" class="bg-yellow-100 border rounded  text-base font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"/>
-                        </div>
-                        
-                        {emailInstead ? 
-                        <div class="mt-6  w-full">
-                            <label for="email" class="text-base font-medium leading-none text-gray-800">
-                                Email Address <em>Test: Use michelle.billings@tupack.co.uk</em>
-                            </label>
-                            <div class="relative flex items-center justify-center">
-                            <input required id="email" type="email" class="bg-yellow-100 border rounded  text-base font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"/>
-                            <div class="absolute right-0 mt-2 mr-3 cursor-pointer">
-                            </div>
-                            </div>
-                        </div>
-                        : 
-                        <div class="mt-6  w-2/5">
-                            <label for="postcode" class="text-base font-medium leading-none text-gray-800">
-                                Postcode <em>Test: Use CV6 6AT</em>
-                            </label>
-                            <div class="relative flex items-center justify-center">
-                            <input required id="postcode" type="text" class="bg-yellow-100 border rounded  text-base font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"/>
-                            <div class="absolute right-0 mt-2 mr-3 cursor-pointer">
-                            </div>
-                            </div>
-                        </div>
-                        }
-                        <div class="w-full flex items-center justify-between py-5">
-                            <hr class="w-full bg-gray-400" />
-                            <p class="text-base font-medium leading-4 px-2.5 text-gray-400">OR</p>
-                            <hr class="w-full bg-gray-400  " />
-                        </div>
-                        <p tabindex="0" class="focus:outline-none text-base mt-2 font-medium leading-none text-gray-500"
-                        >Having issues? 
-                        {emailInstead ? 
-                        <a onClick={switchUserInput} class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-base font-medium leading-none  text-gray-800 cursor-pointer"
-                        > Enter your postcode</a>
-                        :
-                        <a onClick={switchUserInput} class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-base font-medium leading-none  text-gray-800 cursor-pointer"
-                        > Enter your email instead</a>
-                        }
-                        </p>
-                        <div class="mt-8">
-                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-base font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 py-4 w-full"
-                            >Find your order</button>
-                        </div>
-                    </form>
-            </div>   
-        </div>
-        <div className="bottom h-1/8 w-full absolute bottom-0">
-            <Bottom />
-        </div>
-        </div>
+        // <!-- component -->
+        <body class="bg-amber-500 ">
+            <div class="flex min-h-screen items-center justify-center">
+
+                <div class="min-h-1/2 bg-white border border-none p-3 rounded-2xl">
+
+                    <div class="mx-4 sm:mx-24 md:mx-34 lg:mx-56 mx-auto  flex items-center space-y-4 py-16 font-semibold text-gray-500 flex-col">
+                            <img class="h-2/8 w-2/8" src={logo} alt='logo'/>
+
+                        <form className="orderAuth flex flex-col items-center space-y-4 py-16" onSubmit={handleSubmit}>  
+                            <h1 class="text-black text-2xl">Start Your Returns Here</h1>
+
+                            <input class="w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700"
+                                placeholder="Order Number" type="text" />
+
+                            {emailInstead ?
+                            <input class="w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700"
+                                placeholder="Email Address" type="email" />
+                            :
+                            <input class="w-full p-2 bg-gray-900 rounded-md border border-gray-700 " placeholder="Postcode"
+                                type="text" />
+                            }
+                            <p>Having issues? 
+                            {emailInstead ?
+                            <a class="font-semibold text-amber-500" onClick={switchUserInput}> Enter your postcode</a> 
+                            :
+                            <a class="font-semibold text-amber-500" onClick={switchUserInput}> Enter your email</a> 
+                            }
+                            </p>
+                            <input class="w-full p-2 bg-black rounded-full font-bold text-white border border-gray-700 "
+                                type="submit" name="correo" id=""/>
+
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+    </body>
     )
 
 }

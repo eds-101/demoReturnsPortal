@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import ItemRow from './ItemRow/ItemRow'
 import Top from '../Top/Top';
 import Bottom from '../Bottom/Bottom';
+import { computeHeadingLevel } from '@testing-library/react';
 
 function ReturnSelector(props) {     
     const [allProductsInOrder, setAllProductsInOrder] = useState([])    
@@ -66,6 +67,7 @@ function ReturnSelector(props) {
             </div> 
             <div className='products h-5/6 pt-3 pb-7 overscroll-auto flex flex-col items-center justify-center'>
                 {allProductsInOrder.map((p) => {  
+                    console.log(p)
                     return <ItemRow key={p['id']} id={p['id']} name={uncapitalise(p['Name'])} 
                     returnable={p['Returnable']}
                     imgURL={p['ImageURL']} quantity={Number(p['Quantity'])} 

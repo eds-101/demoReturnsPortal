@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       {showScreen === "Home" ? <Home getFinalisedOrder={populateOrder}/> : null}
-      {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={dummyData} goHomePage={HomePageReturn} finalReturns={verifiedItemReturns}/> : null}
+      {showScreen === "ReturnSelector" ? <ReturnSelector loadOrder={orderData} goHomePage={HomePageReturn} finalReturns={verifiedItemReturns}/> : null}
       {showScreen === 'ReturnsComplete' ?  <ReturnsComplete goHomePage={HomePageReturn} finalOrder={finalOrderData}/> : null }
     </div>
   );

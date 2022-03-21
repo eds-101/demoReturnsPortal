@@ -24,7 +24,7 @@ function ReturnsComplete(props){
                     })}
                 </ul>
                 <button onClick={goHome} class="inline-block mt-10 px-10 py-3 bg-yellow-300 text-lg text-black font-semibold"
-                >Back to Returns Page</button>
+                >Start New Return</button>
                 </div>
             </div>
             <div className="bottom h-1/8 w-full absolute bottom-0">

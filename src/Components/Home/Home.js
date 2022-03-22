@@ -13,6 +13,7 @@ function Home(props){
         e.preventDefault()  
         const submittedOrderNumber = e.target[0].value.trim()
         const submittedUserValue = e.target[1].value.trim() 
+        props.getFinalisedOrder("fullOrder")
         try { 
             // GET /api/Order/Search
             const getOrderDetails = await fetch(`https://api.mintsoft.co.uk/api/Order/Search?APIKey=${API_KEY}&OrderNumber=${submittedOrderNumber}`)
@@ -31,7 +32,7 @@ function Home(props){
                 setTimeout(() => props.getFinalisedOrder(fullOrder), 1000)
             }  
         } catch(error) {
-            alert("Something went wrong, please try again")
+            // alert("Something went wrong, please try again")
             console.log(error)  
         }
     }

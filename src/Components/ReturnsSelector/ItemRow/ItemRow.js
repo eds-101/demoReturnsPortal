@@ -32,7 +32,7 @@ function ItemRow(props) {
                     </div>
                     <div>
                         <div class="mb-2 text-black text-2xl">
-                            <p class="font-semibold text-l">{props.name}</p>
+                            <p class="font-semibold text-l mb-6">{props.name}</p>
                         </div>
                         <div class="mb-2 relative font-normal text-base sm:text-base flex items-center text-gray-600">
                             { props.returnable ? 

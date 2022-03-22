@@ -31,37 +31,10 @@ function Home(props){
                 setTimeout(() => props.getFinalisedOrder(fullOrder), 1000)
             }  
         } catch(error) {
-            // alert("Something went wrong, please try again")
+            alert("Something went wrong, please try again")
             console.log(error)  
         }
     }
-    // async function handleSubmit(e) {
-    //     e.preventDefault()  
-    //     const submittedOrderNumber = e.target[0].value.trim()
-    //     const submittedUserValue = e.target[1].value.trim() 
-    //     try { 
-    //         // GET /api/Order/Search
-    //         const getOrderDetails = await fetch(`https://api.mintsoft.co.uk/api/Order/Search?APIKey=${API_KEY}&OrderNumber=${submittedOrderNumber}`)
-    //         const orderDetails = await getOrderDetails.json() 
-    //         const orderDateparsed = new Date(orderDetails[0].OrderDate.slice(0,10)) // Date obj from 2021-06-16T10:25:36.7951757 
-    //         const orderEmail = orderDetails[0].Email
-    //         // const orderID = orderDetails[0].
-    //         const orderPostCode = orderDetails[0].PostCode  
-    //         console.log(orderDetails)
-    //         console.log(orderEmail, orderPostCode)
-    //         const auth = submittedUserValue.includes('@') ? authenticateUser("email", submittedUserValue, orderEmail) : authenticateUser("postcode", submittedUserValue, orderPostCode) 
-    //         if(auth) {
-    //             const startOrder = await fetchOrder(submittedOrderNumber, orderDateparsed)
-    //             console.log(startOrder)
-    //             const updatedOrder = await completeOrderDetails(startOrder)
-    //             setTimeout(() => props.getFinalisedOrder(updatedOrder), 1000)
-    //         }  
-    //     } catch(error) {
-    //         // alert("Something went wrong, please try again")
-    //         console.log(error)  
-    //     }
-    // }
-
 
     // function parseOrderNumber(rawOrder) {
     //     return rawOrder.replace(/\D/g, "")
@@ -97,29 +70,6 @@ function Home(props){
             console.log(error)
         }
     }  
-    // async function fetchOrder(orderNumber, orderDate){
-    //     try { 
-            
-    //         const getProductsFromOrder = await fetch(`https://api.mintsoft.co.uk/api/Order/${orderNumber}/Items?APIKey=${API_KEY}`) 
-    //         const productsRaw = await getProductsFromOrder.json() 
-    //         console.log(productsRaw)
-    //         let productsInOrder = [], product = {}
-    //         for(let i = 0; i < productsRaw.length; i++) {
-    //                 let id = productsRaw[i].ProductId, quantity = productsRaw[i].Quantity 
-    //                 product['ID'] = id 
-    //                 product['Quantity'] = quantity
-    //                 product['Returnable'] = 3516 !== id
-    //                 product['OrderDate'] = orderDate
-    //                 productsInOrder.push(product) 
-    //                 console.log(product)
-    //                 product = {}
-    //             }
-    //         return productsInOrder
-
-    //         } catch(error) {
-    //             console.log(error)
-    //         }
-    // }  
 
     // function validateOrderDate(orderDate, daysToAllowReturns) {
     //     const daysSinceOrderRaw = new Date - orderDate
@@ -153,62 +103,41 @@ function Home(props){
         console.log(productList)
         return productList
     }  
-    // async function completeOrderDetails(initialOrderDetails){ 
-    //     console.log(initialOrderDetails)
-    //     let listOfProducts = [], product = {} 
-    //     try{
-    //         initialOrderDetails.map(async (initialProductData) => {
-    //             product['ID'] = initialProductData['ID']  
-    //             product['Returnable'] = initialProductData['Returnable']
-    //             product['Quantity'] = initialProductData['Quantity'] 
-    //             product['OrderDate'] = initialProductData['OrderDate'] 
-    //             const productApiCall = await fetch(`https://api.mintsoft.co.uk/api/Product/${initialProductData['ID']}?APIKey=${API_KEY}`) 
-    //             const rawProductData = await productApiCall.json()  
-    //             product['Name'] = rawProductData.Name  
-    //             product['Price'] = rawProductData.Price 
-    //             product['ImageURL'] = rawProductData.ImageURL  
-    //             listOfProducts.push(product) 
-    //             product = {}
-    //         }) 
-    //     } 
-    //     catch(error){
-    //         console.log(`Error: ${error}`)
-    //     }  
-    //     return listOfProducts
-    // }  
 
     return(
-        // <!-- component -->
         <body class="bg-amber-500 ">
             <div class="flex min-h-screen items-center justify-center">
 
                 <div class="min-h-1/2 bg-white border border-none p-3 rounded-2xl">
 
                     <div class="mx-4 sm:mx-24 md:mx-34 lg:mx-56 mx-auto  flex items-center space-y-4 py-16 font-semibold text-gray-500 flex-col">
-                            <img class="h-2/8 w-2/8" src={logo} alt='logo'/>
+                            <div class="w-2/5 h-1/5">
+                                <img src={logo} alt='logo'/>
+                                <h1 class="text-black text-center text-4xl">Returns Portal</h1>
+                            </div>
 
-                        <form className="orderAuth flex flex-col items-center space-y-4 py-16" onSubmit={handleSubmit}>  
+                        <form className="orderAuth flex flex-col  space-y-5 py-10" onSubmit={handleSubmit}>  
                             <h1 class="text-black text-2xl">Start Your Returns Here</h1>
 
-                            <input class="w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700"
+                            <input required class="w-full p-2 bg-black rounded-md  border border-gray-700 focus:border-blue-700"
                                 placeholder="Order Number" type="text" />
 
                             {emailInstead ?
-                            <input class="w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700"
+                            <input required class="w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700"
                                 placeholder="Email Address" type="email" />
                             :
-                            <input class="w-full p-2 bg-gray-900 rounded-md border border-gray-700 " placeholder="Postcode"
+                            <input required class="w-1/8 p-2 bg-black rounded-md border border-gray-700 " placeholder="Postcode"
                                 type="text" />
                             }
                             <p>Having issues? 
                             {emailInstead ?
-                            <a class="font-semibold text-amber-500" onClick={switchUserInput}> Enter your postcode</a> 
+                            <a class="font-semibold text-amber-500 cursor-pointer" onClick={switchUserInput}> Enter your postcode</a> 
                             :
-                            <a class="font-semibold text-amber-500" onClick={switchUserInput}> Enter your email</a> 
+                            <a class="font-semibold text-amber-500 cursor-pointer"  onClick={switchUserInput}> Enter your email</a> 
                             }
                             </p>
-                            <input class="w-full p-2 bg-black rounded-full font-bold text-white border border-gray-700 "
-                                type="submit" name="correo" id=""/>
+                            <input class="w-full p-2 bg-black hover:bg-amber-500 rounded-full font-bold text-white hover:text-black border border-gray-700 cursor-pointer"
+                                type="submit" />
 
                         </form>
                     </div>

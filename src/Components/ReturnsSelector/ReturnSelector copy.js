@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import ItemRow from './ItemRow/ItemRow'
 import Top from '../Top/Top';
 import Bottom from '../Bottom/Bottom';
-import logo from '../Home/logoOrange.png'
+import { computeHeadingLevel } from '@testing-library/react';
 
 function ReturnSelector(props) {     
     const [allProductsInOrder, setAllProductsInOrder] = useState([])    
@@ -58,36 +58,31 @@ function ReturnSelector(props) {
 
 
 
-    return(
-        <body class="bg-amber-500">
-            <div class="flex min-h-screen items-center justify-center">
-                <div class=" bg-white border border-none p-4 rounded-2xl">
-
-                <div class="mx-4 sm:mx-24 md:mx-34 lg:mx-56 mx-auto  flex items-center space-y-4 py-4 font-semibold text-gray-500 flex-col">
-
-                <div class="w-3/5 h-1/5">
-                                <img onClick={goHome} src={logo} alt='logo' class="cursor-pointer"/>
-                                <h1 onClick={goHome} class="text-black text-center text-4xl cursor-pointer">Returns Portal</h1>
-                            </div> 
-                        <div className='products py-6 space-y-4 overscroll-auto flex flex-col items-center justify-center'>
-                            {allProductsInOrder.map((p) => {  
-                                console.log(p)
-                                return <ItemRow key={p['id']} id={p['id']} name={uncapitalise(p['Name'])} 
-                                returnable={p['Returnable']}
-                                imgURL={p['ImageURL']} quantity={Number(p['Quantity'])} 
-                                price={p['Price']} returnReasonHandler={addItemAndReturnReason}
-                                returnQuantityHandler={addItemQuantityToReturn} /> 
-                            })}  
-                            <div class="flex flex-col items-center justify-center my-5">
-                                <button onClick={submitCustomerReturn} class="w-full p-5 bg-black hover:bg-amber-500 rounded-full font-bold text-white hover:text-black border border-gray-700 cursor-pointer "
-                                type="submit">Confirm Return</button>
-                            </div>
-                            
-                        </div>
-                    </div>
+    return( 
+        <div className="app h-full w-full flex flex-col relative">
+            <Top />
+            <div class="flex flex-col items-center justify-center my-5">
+                <button onClick={goHome} class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 p-3"
+                >Go back</button>  
+            </div> 
+            <div className='products h-5/6 pt-3 pb-7 overscroll-auto flex flex-col items-center justify-center'>
+                {allProductsInOrder.map((p) => {  
+                    console.log(p)
+                    return <ItemRow key={p['id']} id={p['id']} name={uncapitalise(p['Name'])} 
+                    returnable={p['Returnable']}
+                    imgURL={p['ImageURL']} quantity={Number(p['Quantity'])} 
+                    price={p['Price']} returnReasonHandler={addItemAndReturnReason}
+                    returnQuantityHandler={addItemQuantityToReturn} /> 
+                })}  
+                <div class="flex flex-col items-center justify-center my-5">
+                    <button onClick={submitCustomerReturn} class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-m font-semibold leading-none text-black focus:outline-none bg-yellow-300 border rounded hover:bg-yellow-600 p-5 mb-10"
+                    >Confirm Return</button>
                 </div>
             </div>
-        </body>
+            <div className="bottom w-full absolute bottom-0">
+                <Bottom />
+            </div>
+        </div>
     )
 }
 

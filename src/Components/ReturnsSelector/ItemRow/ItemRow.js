@@ -24,62 +24,49 @@ function ItemRow(props) {
     }
 
     return(
-            <div class="transition duration-150 ease-in-out md:mt-0 mt-8 top-0 left-0 sm:ml-10 md:ml-10 w-10/12 md:w-1/2">
-                <div class="w-full bg-white rounded shadow-2xl">
-                    <div class="w-full h-full px-4 xl:px-8 pt-3 pb-5">
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <div class="mr-4 w-24 h-24 rounded shadow">
-                                    <img class="w-full h-full overflow-hidden object-cover object-center rounded" src={props.imgURL} alt="" />
-                                </div>
-                                <div>
-                                    <div class="mb-2 text-gray-700">
-                                        <p class="font-semibold text-l">{props.name}</p>
-                                    </div>
-                                    <div class="mb-2 relative font-normal text-base sm:text-base flex items-center text-gray-600">
-                                        { props.returnable ? 
-                                        <select required onChange={(e) => returnQuantity(e, props.id, props.name, props.ImageURL)} 
-                                        aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1 mb-2">
-                                        <option>Qty to return</option>
-                                        {quantity.map(i => <option value={i}>{Number(i)}</option>)}
-                                        </select> 
-                                        : null}
-                                        {props.returnable ? 
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-0 mr-2 icon icon-tabler icon-tabler-chevron-down" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z"></path>
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                        </svg>
-                                        : null}
-                                    </div>
-                                    <div class="relative font-normal text-base sm:text-base flex items-center text-gray-600">
-                                        { props.returnable ? 
-                                        <select required onChange={(e) => returnReason(e, props.id, props.name, props.ImageURL)} 
-                                        aria-label="select access" class="cursor-pointer focus:font-bold hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-yellow-300 w-full appearance-none pr-8 py-1">
-                                        <option>Why?</option>
-                                        {returnsReasons.map((r) => <option value={r}>{r}</option>)}
-                                        </select> 
-                                        : null}
-                                        {props.returnable ? 
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-0 mr-2 icon icon-tabler icon-tabler-chevron-down" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z"></path>
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                        </svg>
-                                        : null}
-                                    </div>
-                                    <div class="relative font-normal text-base sm:text-base flex items-center text-gray-600">
-                                        { props.returnable ? null : <p>This product is not eligible for return</p>}
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-
-
-                            </div>
+        <div class="w-full h-full p-8 xl:px-8  rounded-md border border-black">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-10 ">
+                    <div class=" mr-4 w-24 h-24 rounded ">
+                        <img class="w-full h-full  overflow-hidden object-cover object-center rounded" src={props.imgURL} alt="" />
+                    </div>
+                    <div>
+                        <div class="mb-2 text-black text-2xl">
+                            <p class="font-semibold text-l">{props.name}</p>
                         </div>
-                        <hr class="my-3 border-t border-gray-200" />
+                        <div class="mb-2 relative font-normal text-base sm:text-base flex items-center text-gray-600">
+                            { props.returnable ? 
+                            <div class="relative inline-flex">
+                                <svg class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
+                                <select required onChange={(e) => returnQuantity(e, props.id, props.name, props.ImageURL)} 
+                                class="border border-gray-300 rounded-md cursor-pointer font-semibold text-gray-500 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                                    <option hidden disabled selected>Quantity to Return</option>
+                                    {quantity.map(i => <option value={i}>{Number(i)}</option>)}
+                                </select>
+                            </div>
+                            : null}
+                        </div>
+                        <div class="relative font-normal text-base sm:text-base flex items-center text-gray-600">
+                            { props.returnable ? 
+                            <div class="relative inline-flex">
+                                <svg class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
+                                <select required onChange={(e) => returnReason(e, props.id, props.name, props.ImageURL)} 
+                                class="border border-gray-300 rounded-md cursor-pointer font-semibold text-gray-500 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                                    <option hidden disabled selected>Reason for Return</option>
+                                    {returnsReasons.map((r) => <option value={r}>{r}</option>)}
+                                </select>
+                            </div>
+                            : null}
+                        </div>
+                        <div class="relative font-semibold text-base sm:text-base flex items-center text-gray-600">
+                            {props.returnable ? null : <p>This product is not eligible for return</p>}
+                        </div>
                     </div>
                 </div>
-            </div> 
+                <div>
+                </div>
+            </div>
+        </div>
     )
 }
 

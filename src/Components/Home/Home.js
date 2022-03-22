@@ -108,7 +108,7 @@ function Home(props){
         <body class="bg-amber-500 ">
             <div class="flex min-h-screen items-center justify-center">
 
-                <div class="min-h-1/2 bg-white border border-none p-3 rounded-2xl">
+                <div class=" bg-white border border-none p-3 rounded-2xl">
 
                     <div class="mx-4 sm:mx-24 md:mx-34 lg:mx-56 mx-auto  flex items-center space-y-4 py-16 font-semibold text-gray-500 flex-col">
                             <div class="w-2/5 h-1/5">

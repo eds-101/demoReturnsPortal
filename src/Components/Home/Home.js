@@ -14,6 +14,7 @@ function Home(props){
         const submittedOrderNumber = e.target[0].value.trim()
         const submittedUserValue = e.target[1].value.trim() 
         props.getFinalisedOrder("fullOrder")
+        return
         try { 
             // GET /api/Order/Search
             const getOrderDetails = await fetch(`https://api.mintsoft.co.uk/api/Order/Search?APIKey=${API_KEY}&OrderNumber=${submittedOrderNumber}`)
